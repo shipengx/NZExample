@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="netezzaDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="org.netezza.Driver" />
+		<property name="url"
+			value="jdbc:netezza://${ma.netezza.ro.host}:${ma.netezza.ro.port}/${ma.netezza.ro.db}?connectTimeout=20000" />
+		<property name="username" value="${ma.netezza.ro.user}" />
+		<property name="password" value="${ma.netezza.ro.password}" />
+	</bean>
+
+</beans>
